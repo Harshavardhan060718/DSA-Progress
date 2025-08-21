@@ -37,3 +37,44 @@ public:
 };
 
 
+
+Date: 21-08-25
+
+Problem statement :
+Spliting a sub string into balanced 
+
+Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+
+Given a balanced string s, split it into some number of substrings such that:
+
+Each substring is balanced.
+Return the maximum number of balanced strings you can obtain.
+
+ 
+Solution i written for this code is :
+
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int r_count=0, l_count=0 , sub_strings=0;
+        for(int i=0 ; i<s.length(); i++){
+            if(s[i] == 'R') r_count++;
+            else if (s[i] == 'L') l_count++;
+            if(r_count == l_count) sub_strings+=1;
+            }
+
+       return sub_strings ;
+    }
+};
+
+
+
+
+just used brute force tell me is there any other way of solving this better than this 
+
+// TEST CHANGE at 5:00 PM
+
+
+
+
+
