@@ -1,3 +1,4 @@
+
 # Strings 
 
 1 Concept that i have leanred using Two pointers 
@@ -71,5 +72,24 @@ public:
 
 just used brute force tell me is there any other way of solving this better than this 
 
-// TEST CHANGE at 5:00 PM
+23-08-25 
+Problem Sttement : Group anagrams 
 
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string , vector<string>> anagrams_groups;
+        for(const string&word : strs){
+            string sorted_word = word;
+            sort(sorted_word.begin(), sorted_word.end());
+            anagrams_groups[sorted_word].push_back(word);
+            
+        }
+        vector<vector<string>>result;
+        for(auto& group: anagrams_groups){
+            result.push_back(group.second);
+        }
+
+        return result;
+        }
+};
