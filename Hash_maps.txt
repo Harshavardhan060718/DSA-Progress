@@ -185,8 +185,80 @@ public:
 
 
 
+09-09-25
+problem statement 
+
+645. Set Mismatch
+Solved
+Easy
+Topics
+premium lock icon
+Companies
+You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number.
+
+You are given an integer array nums representing the data status of this set after the error.
+
+Find the number that occurs twice and the number that is missing and return them in the form of an array.
 
 
+
+The code that i written for this is 
+
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int duplicate=-1, missing=-1;
+        vector<int> freq(nums.size()+1,0);   // it will be like n+1 boxes with all zeros
+        for(int n:nums){
+            freq[n]++;
+            if(freq[n]==2) duplicate= n;
+        }
+        for(int i=1;i<=nums.size();i++){
+            if(freq[i]==0){
+                missing=i;
+                break;
+            }
+        }
+        return {duplicate, missing};
+
+    }
+};
+
+
+Problem statement 
+
+594. Longest Harmonious Subsequence
+Solved
+Easy
+Topics
+premium lock icon
+Companies
+We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
+
+Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
+
+
+The code that i written
+
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int largest_seq=0;
+        unordered_map<int,int>freq;
+        for(int n:nums){
+            freq[n]++;
+        }
+        for(auto& [num,count]:freq){
+            if(freq.count(num+1)){
+                largest_seq= max(largest_seq, count+freq[num+1]);
+            }
+        }
+        return largest_seq;
+    }
+
+};
 
 
 
