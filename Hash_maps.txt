@@ -359,6 +359,48 @@ vector<string>result;
         which beats 100%
 
 
+15-09-25 
+Problemn statement 
+Most comon word in a string 
+
+So i think the level of the question that the leet code has mentioned was easy but i think its some what greater than easy 
+because if you can see first we have to filter the string with out any puncuiations and after getting the modified string getting extracted each word using istringstream and cjecking that is found in banned strings set if not then we have to count the frequencuy and returning the max freq result 
+
+and the solution that i written for this question is 
+
+Solution 
+
+class Solution {
+public:
+    string mostCommonWord(string paragraph, vector<string>& banned) {
+        for(char &ch:paragraph){
+            ch= isalpha(ch)? tolower(ch): ' ';
+        }
+        unordered_set<string> banned_set(banned.begin(), banned.end());
+        istringstream iss(paragraph);
+        string word , result;
+        int max_freq=0;
+        unordered_map<string, int> freq;
+        while(iss>>word){
+            if(banned_set.count(word)){
+                continue;
+            }
+            if(++freq[word]>max_freq){
+                max_freq=freq[word];
+                result= word;
+            }
+        }
+
+
+        return result;
+    }
+};
+
+
+which beats 60% of solvers and taking 3ms and by the i taken help of gpt but the idea implenmtation was mine i just taken help from gpt to get correct usage of that istringstream and filtering the modified string 
+
+
+
 
 
 
