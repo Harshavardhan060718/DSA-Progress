@@ -6,4 +6,5 @@ Weeek 1 Arrays:
 -> https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
 ->https://leetcode.com/problems/merge-sorted-array/description/
 ->https://leetcode.com/problems/majority-element/description/
-
+->https://leetcode.com/problems/plus-one/submissions/1788730991/
+->https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
